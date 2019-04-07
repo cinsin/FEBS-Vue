@@ -24,7 +24,7 @@
         u.password,
         u.email,
         u.mobile,
-        u. STATUS,
+        u.STATUS,
         u.create_time createTime,
         u.ssex,
         d.dept_id deptId,
@@ -32,8 +32,8 @@
         u.AVATAR,
         u.DESCRIPTION,
         u.LAST_LOGIN_TIME lastLoginTime,
-        GROUP_CONCAT(r.role_id) roleId,
-        GROUP_CONCAT(r.ROLE_NAME) roleName
+        listagg(r.role_id, ',') WITHIN GROUP(ORDER BY r.role_id) AS roleId,
+        listagg(r.role_name, ',') WITHIN GROUP(ORDER BY r.role_id) AS roleName
         FROM
         t_user u
         LEFT JOIN t_dept d ON (u.dept_id = d.dept_id)
@@ -58,7 +58,8 @@
         <if test="user.status != null and user.status != ''">
             AND u.status = #{user.status}
         </if>
-        group by u.username
+        group by u.user_id, u.username, u.password, u.email, u.mobile, u.status, u.create_time,
+        u.ssex, d.dept_id, d.dept_name, u.avatar, u.description, u.LAST_LOGIN_TIME
 
     </select>
 </mapper>
