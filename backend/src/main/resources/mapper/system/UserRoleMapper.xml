@@ -4,9 +4,13 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="cc.mrbird.febs.system.domain.UserRole">
-        <id column="user_id" property="userId"/>
-        <result column="role_id" property="roleId"/>
+        <id column="user_id" jdbcType="DECIMAL"  property="userId"/>
+        <result column="role_id" jdbcType="DECIMAL"  property="roleId"/>
     </resultMap>
+
+    <select id="findUserRoleByRoleId" resultMap="BaseResultMap">
+        SELECT user_id,role_id FROM t_user_role WHERE 1=1 and role_id = #{roleId}
+    </select>
 
     <!--根据用户Id删除该用户的角色关系-->
     <delete id="deleteByUserId">

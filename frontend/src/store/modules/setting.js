@@ -13,7 +13,7 @@ export default {
     theme: db.get('THEME', 'light'),
     layout: db.get('LAYOUT', 'side'),
     systemName: 'FEBS 权限系统',
-    copyright: `${new Date().getFullYear()} <a href="https://mrbird.cc" target="_blank">MrBird</a>`,
+    copyright: `${new Date().getFullYear()} <a href="#" title="JS ALARM">JS ALARM</a>`,
     multipage: getBooleanValue(db.get('MULTIPAGE'), true),
     fixSiderbar: getBooleanValue(db.get('FIX_SIDERBAR'), true),
     fixHeader: getBooleanValue(db.get('FIX_HEADER'), true),

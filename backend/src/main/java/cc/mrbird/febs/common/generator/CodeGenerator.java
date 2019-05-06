@@ -23,15 +23,19 @@ import java.util.Scanner;
 public class CodeGenerator {
 
     // 数据库 URL
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/febs_shiro_jwt?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    //private static final String URL = "jdbc:mysql://127.0.0.1:3306/febs_shiro_jwt?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static final String URL = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.211.55.11)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=oracle)))";
     // 数据库驱动
-    private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
+    //private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
+    private static final String DRIVER_NAME = "oracle.jdbc.driver.OracleDriver";
     // 数据库用户名
-    private static final String USERNAME = "root";
+    //private static final String USERNAME = "root";
+    private static final String USERNAME = "vue";
     // 数据库密码
-    private static final String PASSWORD = "123456";
+    //private static final String PASSWORD = "123456";
+    private static final String PASSWORD = "md5hkzhzh";
     // @author 值
-    private static final String AUTHOR = "MrBird";
+    private static final String AUTHOR = "Cinsin";
     // 包的基础路径
     private static final String BASE_PACKAGE_URL = "cc.mrbird.febs";
     // xml文件路径
@@ -58,7 +62,8 @@ public class CodeGenerator {
         globalConfig.setOutputDir(projectPath + "/src/main/java");
         globalConfig.setAuthor(AUTHOR);
         globalConfig.setOpen(false);
-        globalConfig.setFileOverride(false);
+        globalConfig.setFileOverride(true);
+        globalConfig.setBaseResultMap(true);
         generator.setGlobalConfig(globalConfig);
 
         // 数据源配置
@@ -73,6 +78,8 @@ public class CodeGenerator {
         PackageConfig packageConfig = new PackageConfig();
         packageConfig.setModuleName("gen");
         packageConfig.setParent(BASE_PACKAGE_URL);
+        packageConfig.setEntity("domain");
+        packageConfig.setMapper("dao");
         generator.setPackageInfo(packageConfig);
 
         // 配置自定义代码模板
@@ -94,7 +101,8 @@ public class CodeGenerator {
         strategy.setInclude(scanner("表名"));
         strategy.setSuperEntityColumns("id");
         strategy.setControllerMappingHyphenStyle(true);
-        strategy.setTablePrefix(packageConfig.getModuleName() + "_");
+        //strategy.setTablePrefix(packageConfig.getModuleName() + "_");
+        strategy.setTablePrefix("T_");
         generator.setStrategy(strategy);
         generator.setTemplateEngine(new FreemarkerTemplateEngine());
         generator.execute();

@@ -2,17 +2,20 @@ package cc.mrbird.febs.system.domain;
 
 import cc.mrbird.febs.common.converter.TimeConverter;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.wuwenze.poi.annotation.Excel;
 import com.wuwenze.poi.annotation.ExcelField;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
-
 @Data
 @TableName("t_role")
 @Excel("角色信息表")
@@ -20,7 +23,7 @@ public class Role implements Serializable {
 
     private static final long serialVersionUID = -1714476694755654924L;
 
-    @TableId(value = "ROLE_ID", type = IdType.AUTO)
+    @TableId(value = "ROLE_ID")
     private Long roleId;
 
     @NotBlank(message = "{required}")
@@ -43,3 +46,33 @@ public class Role implements Serializable {
     private transient String menuId;
 
 }
+
+/*
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("T_ROLE")
+public class Role implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId("ROLE_ID")
+    private String roleId;
+
+    @TableField("ROLE_NAME")
+    private String roleName;
+
+    @TableField("REMARK")
+    private String remark;
+
+    @TableField("CREATE_TIME")
+    private Date createTime;
+
+    @TableField("MODIFY_TIME")
+    private Date modifyTime;
+
+    private transient String createTimeFrom;
+    private transient String createTimeTo;
+    private transient String menuId;
+
+}*/

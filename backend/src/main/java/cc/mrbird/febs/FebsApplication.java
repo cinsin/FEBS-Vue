@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class FebsApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(FebsApplication.class)
-                .run(args);
+        new SpringApplicationBuilder(FebsApplication.class).run(args);
     }
 }

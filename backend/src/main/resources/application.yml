@@ -28,7 +28,7 @@ spring:
         oradb:
           username: vue
           password: md5hkzhzh
-          driver-class-name: oracle.jdbc.driver.OracleDriver
+          driver-class-name: oracle.jdbc.OracleDriver
           url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.211.55.11)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=oracle)))
   aop:
     proxy-target-class: true
@@ -55,14 +55,14 @@ spring:
 
 #mybatis plus 设置
 mybatis-plus:
-  type-aliases-package: cc.mrbird.febs.system.domain,cc.mrbird.febs.job.domain
-  mapper-locations: classpath:mapper/*/*.xml
-  configuration:
-    jdbc-type-for-null: 'null'
+  type-aliases-package: cc.mrbird.febs.system.domain,cc.mrbird.febs.job.domain,cc.mrbird.febs.kps.bill.domain
+  #mapper-locations: classpath:mapper/*/*.xml,mapper/*/*/*.xml
+  mapper-locations: classpath*:mapper/**/*.xml
+#  configuration:
+#    jdbc-type-for-null: 'null'
   global-config:
     # 关闭 mybatis-plus的 banner
     banner: false
-
 management:
   endpoints:
     web:
@@ -82,4 +82,22 @@ febs:
     # 后端免认证接口 url
     anonUrl: /login,/logout/**,/regist,/user/check/**
     # token有效期，单位秒
-    jwtTimeOut: 3600
+    jwtTimeOut: 36000
+
+
+logging:
+  level:
+    com:
+      baomidou:
+        dynamic:
+          datasource: info
+      zaxxer:
+        hikari:
+          pool: info
+    org:
+      springframework:
+        scheduling:
+          quartz: info
+      quartz:
+        core: info
+

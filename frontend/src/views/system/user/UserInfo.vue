@@ -4,21 +4,21 @@
     :centered="true"
     :keyboard="false"
     :footer="null"
-    :width="750"
+    :width="950"
     @cancel="handleCancleClick"
     title="用户信息">
     <a-layout class="user-info">
       <a-layout-sider class="user-info-side">
         <a-avatar shape="square" :size="115" icon="user" :src="`static/avatar/${userInfoData.avatar}`"/>
       </a-layout-sider>
-      <a-layout-content class="user-content-one">
+      <a-layout-content class="user-content">
         <p><a-icon type="user"/>账户：{{userInfoData.username}}</p>
         <p :title="userInfoData.roleName"><a-icon type="star"/>角色：{{userInfoData.roleName? userInfoData.roleName: '暂无角色'}}</p>
         <p><a-icon type="skin"/>性别：{{sex}}</p>
         <p><a-icon type="phone"/>电话：{{userInfoData.mobile ? userInfoData.mobile : '暂未绑定电话'}}</p>
         <p><a-icon type="mail"/>邮箱：{{userInfoData.email ? userInfoData.email : '暂未绑定邮箱'}}</p>
       </a-layout-content>
-      <a-layout-content class="user-content-two">
+      <a-layout-content class="user-content">
         <p><a-icon type="home"/>部门：{{userInfoData.deptName ? userInfoData.deptName : '暂无部门信息'}}</p>
         <p>
           <a-icon type="smile" v-if="userInfoData.status === '1'"/>

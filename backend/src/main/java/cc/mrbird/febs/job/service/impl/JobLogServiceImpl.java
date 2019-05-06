@@ -10,6 +10,8 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import date.DateStyle;
+import date.MyDateHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -43,8 +46,8 @@ public class JobLogServiceImpl extends ServiceImpl<JobLogMapper, JobLog> impleme
             }
             if (StringUtils.isNotBlank(jobLog.getCreateTimeFrom()) && StringUtils.isNotBlank(jobLog.getCreateTimeTo())) {
                 queryWrapper
-                        .ge(JobLog::getCreateTime, jobLog.getCreateTimeFrom())
-                        .le(JobLog::getCreateTime, jobLog.getCreateTimeTo());
+                        .ge(JobLog::getCreateTime, MyDateHelper.stringToDate(jobLog.getCreateTimeFrom(), DateStyle.YYYY_MM_DD))
+                        .le(JobLog::getCreateTime, MyDateHelper.stringToDate(jobLog.getCreateTimeTo(), DateStyle.YYYY_MM_DD));
             }
             Page<JobLog> page = new Page<>(request.getPageNum(), request.getPageSize());
             SortUtil.handlePageSort(request, page, "createTime", FebsConstant.ORDER_DESC, true);
