@@ -7,6 +7,10 @@
 
 FEBS-Vue为[FEBS-Shiro](https://github.com/wuyouzhuguli/FEBS-Shiro)的前后端分离版本，前端使用Vue全家桶，组件库采用[Ant-Design-Vue](https://vuecomponent.github.io/ant-design-vue/docs/vue/introduce-cn/)
 
+### 项目文档
+
+[https://mrbird.cc/FEBS-Vue-Document.html](https://mrbird.cc/FEBS-Vue-Document.html)
+
 ### 预览地址
 
 服务器带宽小，初次加载较慢，请耐心等待：[http://111.230.157.133:8081](http://111.230.157.133:8081)。
@@ -17,7 +21,7 @@ FEBS-Vue为[FEBS-Shiro](https://github.com/wuyouzhuguli/FEBS-Shiro)的前后端�
 ---|---|---
 scott | 1234qwer | 注册账号，拥有查看，新增导出等权限，但不能新增用户
 jack | 1234qwer |普通账户，仅拥有所有页面查看权限
-mrbird | 进群获取 |超级管理员，拥有所有增删改查权限
+mrbird | 多次遭人恶意删除，不再提供 |超级管理员，拥有所有增删改查权限
 
 本地部署账号密码：
 
@@ -56,8 +60,6 @@ yarn install
 # 启动
 yarn start
 ```
-
-> 详细文档编写中...
 
 ### 功能模块
 ```
@@ -155,6 +157,3 @@ v-hasAnyRole | 当用户拥有列出的任意一个角色的时候，渲染该�
 - [ExcelKit](https://gitee.com/wuwenze/ExcelKit)
 
 - [mybatis-plus](https://github.com/baomidou/mybatis-plus)
-
-### 反馈交流
-![QQ](images/QQ.jpg)
