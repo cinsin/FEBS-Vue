@@ -13,6 +13,7 @@ import cc.mrbird.febs.system.service.UserConfigService;
 import cc.mrbird.febs.system.service.UserService;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("cacheService")
+@Slf4j
 public class CacheServiceImpl implements CacheService {
 
     @Autowired
@@ -48,10 +50,12 @@ public class CacheServiceImpl implements CacheService {
     @Override
     public User getUser(String username) throws Exception {
         String userString = this.redisService.get(FebsConstant.USER_CACHE_PREFIX + username);
-        if (StringUtils.isBlank(userString))
+        if (StringUtils.isBlank(userString)) {
             throw new Exception();
-        else
+        }
+        else {
             return this.mapper.readValue(userString, User.class);
+        }
     }
 
     @Override

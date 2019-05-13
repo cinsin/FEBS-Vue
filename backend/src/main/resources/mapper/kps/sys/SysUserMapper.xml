@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cc.mrbird.febs.kps.sys.dao.SysUserMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="cc.mrbird.febs.kps.sys.domain.SysUser">
+                    <id column="USER_ID" property="userId" />
+                    <result column="AREA_ID" property="areaId" />
+                    <result column="USER_NAME" property="userName" />
+                    <result column="USER_GENDER_TYPE" property="userGenderType" />
+                    <result column="USER_LOGIN_NAME" property="userLoginName" />
+                    <result column="USER_LOGIN_PWD" property="userLoginPwd" />
+                    <result column="IS_VALID" property="isValid" />
+                    <result column="DATE_CREATED" property="dateCreated" />
+                    <result column="LAST_UPDATED" property="lastUpdated" />
+                    <result column="USER_MOBILE_NUM" property="userMobileNum" />
+                    <result column="USER_OFFICE_NUM" property="userOfficeNum" />
+                    <result column="USER_MAIL" property="userMail" />
+                    <result column="USER_DESC" property="userDesc" />
+                    <result column="LOGIN_WRONG_TIME" property="loginWrongTime" />
+                    <result column="SPEC_ID" property="specId" />
+                    <result column="IS_LOCKED" property="isLocked" />
+                    <result column="DEPT_ID" property="deptId" />
+                    <result column="LAST_LOGIN_TIME" property="lastLoginTime" />
+                    <result column="AVATAR" property="avatar" />
+                    <result column="REAL_NAME" property="realName" />
+                    <result column="ID_CARD_NO" property="idCardNo" />
+        </resultMap>
+
+</mapper>

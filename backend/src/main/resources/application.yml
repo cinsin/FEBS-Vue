@@ -58,8 +58,8 @@ mybatis-plus:
   type-aliases-package: cc.mrbird.febs.system.domain,cc.mrbird.febs.job.domain,cc.mrbird.febs.kps.bill.domain
   #mapper-locations: classpath:mapper/*/*.xml,mapper/*/*/*.xml
   mapper-locations: classpath*:mapper/**/*.xml
-#  configuration:
-#    jdbc-type-for-null: 'null'
+  configuration:
+    jdbc-type-for-null: 'null'
   global-config:
     # 关闭 mybatis-plus的 banner
     banner: false
@@ -99,5 +99,6 @@ logging:
         scheduling:
           quartz: info
       quartz:
+        impl: info
         core: info
 

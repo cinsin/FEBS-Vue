@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -19,6 +21,7 @@ import java.util.List;
  */
 @Slf4j
 @Component
+@Order(1)
 public class CacheInitRunner implements ApplicationRunner {
 
     @Autowired
@@ -40,7 +43,10 @@ public class CacheInitRunner implements ApplicationRunner {
 
             log.info("缓存初始化 ······");
             log.info("缓存用户数据 ······");
+
+            // 待优化项：初始化系统的时候，只向redis中缓存使用系统频率最高的topN个用户，不要全量用户都缓存，效率太慢
             List<User> list = this.userService.list();
+
             for (User user : list) {
                 userManager.loadUserRedisCache(user);
             }

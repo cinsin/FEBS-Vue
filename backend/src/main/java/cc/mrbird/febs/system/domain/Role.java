@@ -46,33 +46,3 @@ public class Role implements Serializable {
     private transient String menuId;
 
 }
-
-/*
-@Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-@TableName("T_ROLE")
-public class Role implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
-    @TableId("ROLE_ID")
-    private String roleId;
-
-    @TableField("ROLE_NAME")
-    private String roleName;
-
-    @TableField("REMARK")
-    private String remark;
-
-    @TableField("CREATE_TIME")
-    private Date createTime;
-
-    @TableField("MODIFY_TIME")
-    private Date modifyTime;
-
-    private transient String createTimeFrom;
-    private transient String createTimeTo;
-    private transient String menuId;
-
-}*/

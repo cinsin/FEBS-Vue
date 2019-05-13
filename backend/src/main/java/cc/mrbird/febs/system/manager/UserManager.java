@@ -38,7 +38,6 @@ public class UserManager {
     @Autowired
     private UserConfigService userConfigService;
 
-
     /**
      * 通过用户名获取用户基本信息
      *

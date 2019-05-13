@@ -2,4 +2,160 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cc.mrbird.febs.kps.bill.dao.AlmParmBillMapper">
 
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cc.mrbird.febs.kps.bill.domain.AlmParmBill">
+        <id column="PBIL_ID" property="pbilId" />
+        <result column="USER_ID" property="userId" />
+        <result column="NM_ID" property="nmId" />
+        <result column="FGBI_ID" property="fgbiId" />
+        <result column="RELATED_AREA_CODE_INC" property="relatedAreaCodeInc" />
+        <result column="RELATED_AREA_CODE_EXC" property="relatedAreaCodeExc" />
+        <result column="FAULT_AREA_NAME_INC" property="faultAreaNameInc" />
+        <result column="FAULT_AREA_NAME_EXC" property="faultAreaNameExc" />
+        <result column="RELATED_SUBAREA_CODE_INC" property="relatedSubareaCodeInc" />
+        <result column="RELATED_SUBAREA_CODE_EXC" property="relatedSubareaCodeExc" />
+        <result column="FAULT_SUBAREA_NAME_INC" property="faultSubareaNameInc" />
+        <result column="FAULT_SUBAREA_NAME_EXC" property="faultSubareaNameExc" />
+        <result column="PRIORITY_INC" property="priorityInc" />
+        <result column="PRIORITY_EXC" property="priorityExc" />
+        <result column="CLEARED_INC" property="clearedInc" />
+        <result column="CLEARED_EXC" property="clearedExc" />
+        <result column="CUT_STAT_INC" property="cutStatInc" />
+        <result column="CUT_STAT_EXC" property="cutStatExc" />
+        <result column="USER_LABEL_INC" property="userLabelInc" />
+        <result column="USER_LABEL_EXC" property="userLabelExc" />
+        <result column="USER_LABEL_UCASE_INC" property="userLabelUcaseInc" />
+        <result column="USER_LABEL_UCASE_EXC" property="userLabelUcaseExc" />
+        <result column="SUMMARY_INC" property="summaryInc" />
+        <result column="SUMMARY_EXC" property="summaryExc" />
+        <result column="SUMMARY_UCASE_INC" property="summaryUcaseInc" />
+        <result column="SUMMARY_UCASE_EXC" property="summaryUcaseExc" />
+        <result column="MSTY_ID_INC" property="mstyIdInc" />
+        <result column="MSTY_ID_EXC" property="mstyIdExc" />
+        <result column="MSTY_NAME_INC" property="mstyNameInc" />
+        <result column="MSTY_NAME_EXC" property="mstyNameExc" />
+        <result column="FAULT_INFO_INC" property="faultInfoInc" />
+        <result column="FAULT_INFO_EXC" property="faultInfoExc" />
+        <result column="EQTY_ID_INC" property="eqtyIdInc" />
+        <result column="EQTY_ID_EXC" property="eqtyIdExc" />
+        <result column="EQTY_NAME_INC" property="eqtyNameInc" />
+        <result column="EQTY_NAME_EXC" property="eqtyNameExc" />
+        <result column="EQP_ID_INC" property="eqpIdInc" />
+        <result column="EQP_ID_EXC" property="eqpIdExc" />
+        <result column="EQP_NAME_INC" property="eqpNameInc" />
+        <result column="EQP_NAME_EXC" property="eqpNameExc" />
+        <result column="EQP_SPOFFICE_INC" property="eqpSpofficeInc" />
+        <result column="EQP_SPOFFICE_EXC" property="eqpSpofficeExc" />
+        <result column="EQP_PLACE_INC" property="eqpPlaceInc" />
+        <result column="EQP_PLACE_EXC" property="eqpPlaceExc" />
+        <result column="EQP_POST_INC" property="eqpPostInc" />
+        <result column="EQP_POST_EXC" property="eqpPostExc" />
+        <result column="PORT_ID_INC" property="portIdInc" />
+        <result column="PORT_ID_EXC" property="portIdExc" />
+        <result column="PORT_NAME_INC" property="portNameInc" />
+        <result column="PORT_NAME_EXC" property="portNameExc" />
+        <result column="ALM_RSPR_INC" property="almRsprInc" />
+        <result column="ALM_RSPR_EXC" property="almRsprExc" />
+        <result column="CONTEXTA_INC" property="contextaInc" />
+        <result column="CONTEXTA_EXC" property="contextaExc" />
+        <result column="CONTEXTB_INC" property="contextbInc" />
+        <result column="CONTEXTB_EXC" property="contextbExc" />
+        <result column="CONTEXTC_INC" property="contextcInc" />
+        <result column="CONTEXTC_EXC" property="contextcExc" />
+        <result column="CONTEXTD_INC" property="contextdInc" />
+        <result column="CONTEXTD_EXC" property="contextdExc" />
+        <result column="CONTEXTE_INC" property="contexteInc" />
+        <result column="CONTEXTE_EXC" property="contexteExc" />
+        <result column="CONTEXTF_INC" property="contextfInc" />
+        <result column="CONTEXTF_EXC" property="contextfExc" />
+        <result column="DETAILS_INC" property="detailsInc" />
+        <result column="DETAILS_EXC" property="detailsExc" />
+        <result column="DETAILS_UCASE_INC" property="detailsUcaseInc" />
+        <result column="DETAILS_UCASE_EXC" property="detailsUcaseExc" />
+        <result column="MEDIATION_TIME_WEEK_INC" property="mediationTimeWeekInc" />
+        <result column="MEDIATION_TIME_WEEK_EXC" property="mediationTimeWeekExc" />
+        <result column="MEDIATION_TIME_HOUR_INC" property="mediationTimeHourInc" />
+        <result column="MEDIATION_TIME_HOUR_EXC" property="mediationTimeHourExc" />
+        <result column="USER_UPDATED" property="userUpdated" />
+        <result column="AUDIT_STAT" property="auditStat" />
+        <result column="DATE_CREATED" property="dateCreated" />
+        <result column="LAST_UPDATED" property="lastUpdated" />
+        <result column="PBIL_CODE" property="pbilCode" />
+        <result column="PBIL_NAME" property="pbilName" />
+        <result column="PBIL_SW_STAT" property="pbilSwStat" />
+        <result column="PBIL_LEVEL" property="pbilLevel" />
+        <result column="PBIL_IS_REVOKABLE" property="pbilIsRevokable" />
+        <result column="PBIL_IS_IGNORE_CLEARED" property="pbilIsIgnoreCleared" />
+        <result column="PBIL_IS_MERGE" property="pbilIsMerge" />
+        <result column="PBIL_IS_REBILL" property="pbilIsRebill" />
+        <result column="PBIL_REBIL_LEN" property="pbilRebilLen" />
+        <result column="PBIL_DELAY_LEN" property="pbilDelayLen" />
+        <result column="PBIL_EQP_REP_LEN" property="pbilEqpRepLen" />
+        <result column="PBIL_LIMIT_TYPE" property="pbilLimitType" />
+        <result column="PBIL_LIMIT_COUNT" property="pbilLimitCount" />
+        <result column="MAIN_SPECIALID" property="mainSpecialid" />
+        <result column="SPECIALID" property="specialid" />
+        <result column="FAULTTYPEID" property="faulttypeid" />
+        <result column="BILL_PRIORITY" property="billPriority" />
+        <result column="ALARM_CONTENT" property="alarmContent" />
+        <result column="ALARM_OBJ_NAME" property="alarmObjName" />
+        <result column="ALARM_INDEX_NAME" property="alarmIndexName" />
+        <result column="ALARM_CITY" property="alarmCity" />
+        <result column="BILL_AREA_ID" property="billAreaId" />
+        <result column="IS_AUTO" property="isAuto" />
+        <result column="NET_NAME" property="netName" />
+        <result column="TRADER_INFO" property="traderInfo" />
+        <result column="FAULT_ACTUAL" property="faultActual" />
+        <result column="FAULT_INFO" property="faultInfo" />
+        <result column="TITLE" property="title" />
+        <result column="FAULT_SRC_ID" property="faultSrcId" />
+        <result column="ALARM_TYPE" property="alarmType" />
+        <result column="SPOFFICE" property="spoffice" />
+        <result column="PBIL_DESC" property="pbilDesc" />
+        <result column="PBIL_MERGE_LABEL" property="pbilMergeLabel" />
+        <result column="PBIL_REBILL_HOUR_INC" property="pbilRebillHourInc" />
+        <result column="MEDIATION_TIME_START" property="mediationTimeStart" />
+        <result column="MEDIATION_TIME_END" property="mediationTimeEnd" />
+        <result column="CONTROL_PERMISSIONS" property="controlPermissions" />
+        <result column="PBEX_ID" property="pbexId" />
+        <result column="COMPLAINT_INFO" property="complaintInfo" />
+        <result column="BILL_TYPE" property="billType" />
+        <result column="BILL_AREA_CODE" property="billAreaCode" />
+        <result column="IS_RELATED_GRID" property="isRelatedGrid" />
+        <result column="PBIL_FIRST_MERGE_LABEL" property="pbilFirstMergeLabel" />
+        <result column="MERGER_CAUSE" property="mergerCause" />
+        <result column="MERGER_INFO" property="mergerInfo" />
+        <result column="BEGIN_TIME" property="beginTime" />
+        <result column="END_TIME" property="endTime" />
+        <result column="NM_NAME_INC" property="nmNameInc" />
+        <result column="IS_CROSS_NM" property="isCrossNm" />
+        <result column="NET_CODE" property="netCode" />
+        <result column="MASTER_SUMMARY_INC" property="masterSummaryInc" />
+        <result column="REQ_USER" property="reqUser" />
+        <result column="REQ_DETAIL" property="reqDetail" />
+        <result column="REQ_AUDITER" property="reqAuditer" />
+        <result column="REQ_DEVELOPER" property="reqDeveloper" />
+        <result column="REQ_PUBLISHER" property="reqPublisher" />
+        <result column="PUB_TIME" property="pubTime" />
+        <result column="RELEASE_NOTE" property="releaseNote" />
+        <result column="SCOPE_APP" property="scopeApp" />
+        <result column="NM_NAME" property="nmName" />
+        <result column="USER_NAME" property="userName" />
+        <result column="FGBI_NAME" property="fgbiName" />
+        <result column="PBEX_NAME" property="pbexName" />
+    </resultMap>
+
+    <select id="findAlmParmBill" resultMap="BaseResultMap">
+        SELECT n.nm_name, u.user_name, fb.fgbi_name, exp.pbex_name, pb.*
+          from t_alm_parm_bill        pb,
+               t_alm_nm               n,
+               t_sys_user             u,
+               t_alm_figr_bill        fb,
+               t_alm_parm_bill_expend exp
+         where pb.nm_id = n.nm_id
+           and pb.user_id = u.user_id
+           and pb.fgbi_id = fb.fgbi_id
+           and pb.pbex_id = exp.pbex_id
+         order by pb.last_updated desc
+    </select>
 </mapper>

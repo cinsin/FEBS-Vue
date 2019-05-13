@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-@Order
 @Slf4j
 @Component
+@Order(2)
 public class StartedUpRunner implements ApplicationRunner {
 
     @Autowired

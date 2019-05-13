@@ -133,7 +133,7 @@ export default {
       return [{
         title: '名称',
         dataIndex: 'text',
-        width: 200,
+        width: 220,
         fixed: 'left'
       }, {
         title: '图标',
